@@ -1,0 +1,9 @@
+apiVersion: caiofralmeida.io/v1alpha1
+kind: SimpleStorage
+metadata:
+  name: foo
+  namespace: default
+spec:
+  tags:
+    foo: bar
+    zzz: aaa

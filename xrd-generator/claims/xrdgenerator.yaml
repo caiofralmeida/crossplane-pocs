@@ -1,0 +1,11 @@
+apiVersion: crossplane.caiofralmeida.io/v1alpha1
+kind: XRDGenerator
+metadata:
+  name: configurable-deploy
+spec:
+  resourceName: ConfigurableDeploy
+  specFields:
+    config: string
+  statusFields:
+    name: string
+

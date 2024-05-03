@@ -1,0 +1,27 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  labels:
+    crossplane.io/xrd: xsimplestorages.caiofralmeida.io
+  name: xsimplestorages.caiofralmeida.io
+spec:
+  compositeTypeRef:
+    apiVersion: caiofralmeida.io/v1alpha1
+    kind: xSimpleStorage
+  mode: Pipeline
+  pipeline:
+  
+  - step: simple-storage
+    functionRef:
+      name: function-go-templating
+    input:
+      apiVersion: gotemplating.fn.crossplane.io/v1beta1
+      kind: GoTemplate
+      source: FileSystem
+      fileSystem:
+        dirPath: /templates
+  
+  - step: ready
+    functionRef:
+      name: function-auto-ready
+  
